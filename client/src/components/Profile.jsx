@@ -31,7 +31,7 @@ class Profile extends React.Component {
              style={{"marginRight": "1.2rem", "marginBottom": "5px"}}
              color="primary"
              variant="contained"
-             onClick={(e) => console.log(e)}
+             onClick={(e) => this.props.switchToFeed()}
              >
               Back
             </Button>

@@ -10,14 +10,30 @@ class App extends React.Component {
     this.state = {
       feed: false,
       logIn: true,
-      user: "Bruce"
+      profile: false,
+      user: "Bruce",
+      password: "Waifus"
     };
     this.handleLogIn = this.handleLogIn.bind(this);
+    this.switchToLogIn = this.switchToLogIn.bind(this);
+    this.switchToProfile = this.switchToProfile.bind(this);
+    this.switchToFeed = this.switchToFeed.bind(this);
   }
 
-  handleLogIn(user){
-    this.setState({user: user})
-    console.log(user);
+  switchToLogIn() {
+    this.setState({logIn: true});
+  }
+
+  switchToProfile() {
+    this.setState({logIn: false,feed: false, profile: true});
+  }
+
+  switchToFeed() {
+    this.setState({logIn: false,feed: true, profile: false});
+  }
+
+  handleLogIn(user, password){
+    this.setState({user, password, logIn: false});
   }
 
   render() {
@@ -25,11 +41,11 @@ class App extends React.Component {
       <div className="main">
         {!this.state.logIn &&
           <>
-            {this.state.feed && <Feed />}
-            {!this.state.feed && <Profile user={this.state.user} />}
+            {this.state.feed && <Feed switchToProfile={this.switchToProfile} switchToLogIn={this.switchToLogIn}/>}
+            {!this.state.feed && <Profile switchToFeed={this.switchToFeed} user={this.state.user} />}
           </>
         }
-        {this.state.logIn && <LogIn handLogIn={this.handleLogIn}/>}
+        {this.state.logIn && <LogIn switchToProfile={this.switchToProfile} switchToFeed={this.switchToFeed} handleLogIn={this.handleLogIn}/>}
       </div>
       );
   }
