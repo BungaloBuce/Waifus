@@ -16,8 +16,8 @@ class LogIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "Bruce",
-      password: "Waifus",
+      user: "",
+      password: "",
       images: []
     };
   }
@@ -40,22 +40,20 @@ class LogIn extends React.Component {
         </h1>
         <Box component="form" align="center" id="LogIn">
           <TextField
-            required
             style={{"marginBottom": "0.5rem"}}
             label="Username"
-            defaultValue="Bruce"
             variant="filled"
             size="small"
             onChange={(e) => this.setState({user: e.target.value})}
+            required
           />
           <br />
           <TextField
-            required
             label="Password"
-            defaultValue="Waifus"
             variant="filled"
             size="small"
             onChange={(e) => this.setState({password: e.target.value})}
+            required
           />
           <br />
            <Button

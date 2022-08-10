@@ -36,7 +36,7 @@ class Profile extends React.Component {
               Back
             </Button>
           </ThemeProvider>
-          Username's Waifus
+          {this.props.user} Waifus
         </h1>
       <Collection images={this.state.images}/>
       </div>);

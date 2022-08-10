@@ -22,14 +22,14 @@ export default function Collection({images}) {
                 <img style={{"width": "300px", "maxHeight": "420px", "border": "solid black 3px", "borderRadius": "10px"}} src={image} alt="waifu pic"/>
                 <br />
                 <Button
-                style={{"width": "49.75%"}}
+                style={{"width": "50%","border": "solid black 3px", "borderRadius": "0px"}}
                 color="primary"
                 variant="contained"
                 >
                   Save
                 </Button>
                 <Button
-                style={{"width": "49.75%", "marginLeft": "0.5%"}}
+                style={{"width": "50%", "border": "solid black 3px", "borderRadius": "0px"}}
                 color="primary"
                 variant="contained"
                 href={image}

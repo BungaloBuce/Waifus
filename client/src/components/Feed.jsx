@@ -57,7 +57,7 @@ class Feed extends React.Component {
             </Button>
           </ThemeProvider>
           <FormControl>
-          <InputLabel style={{"fontSize": "70%", "color": "white", "marginLeft": "1.4rem", "marginBottom": "5px", "width": "200%"}} id="demo-simple-select-label">Category</InputLabel>
+          <InputLabel style={{"fontSize": "70%", "color": "white", "marginLeft": "1.8rem", "marginBottom": "5px", "width": "200%", "text-decoration": "underline"}} id="demo-simple-select-label">Category</InputLabel>
             <Select
              style={{"color": "white", "marginLeft": "1rem", "marginBottom": "5px", "width": "200%"}}
              value={this.state.category}
@@ -88,6 +88,29 @@ class Feed extends React.Component {
               <MenuItem value="cringe">cringe</MenuItem>
             </Select>
           </FormControl>
+          <Button
+             style={{"marginLeft": "35rem", "marginBottom": "5px"}}
+             color="primary"
+             variant="contained"
+             onClick={(e) =>  {
+              if(this.props.user === "") {
+                this.props.switchToLogIn();
+              } else {
+                this.props.switchToProfile();
+              }
+            }}
+             >
+              {this.props.user === "" &&
+                <>
+                  Log In/Create Account
+                </>
+              }
+              {this.props.user !== "" &&
+                <>
+                  {this.props.user}
+                </>
+              }
+          </Button>
         </h1>
       <Collection images={this.state.images}/>
       </div>
