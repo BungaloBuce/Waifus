@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Feed from './Feed.jsx';
 import Profile from './Profile.jsx';
 import LogIn from './LogIn.jsx';
@@ -8,8 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      feed: false,
-      logIn: true,
+      feed: true,
+      logIn: false,
       profile: false,
       user: "",
       password: ""
@@ -34,6 +35,9 @@ class App extends React.Component {
 
   handleLogIn(user, password){
     this.setState({user, password, logIn: false});
+    axios.post('http://localhost:5000/logIn', {user, password})
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
   }
 
   render() {
