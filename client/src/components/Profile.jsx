@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, createTheme, ThemeProvider
 } from '@material-ui/core';
-// import axios from 'axios';
+import axios from 'axios';
 import Collection from './Collection.jsx';
 
 const buttonTheme = createTheme({
@@ -20,6 +20,17 @@ class Profile extends React.Component {
     this.state = {
       images: []
     };
+    this.getCollection = this.getCollection.bind(this);
+  }
+
+  componentDidMount(){
+    this.getCollection();
+  }
+
+  getCollection(){
+    axios.get(`http://localhost:5000/${this.props.user}`)
+      .then(results => this.setState({images: results.data[0].images}))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -36,9 +47,9 @@ class Profile extends React.Component {
               Back
             </Button>
           </ThemeProvider>
-          {this.props.user} Waifus
+          {this.props.user}'s Waifus
         </h1>
-      <Collection images={this.state.images}/>
+      <Collection user={this.props.user} updateImages={this.getCollection} inProfile={true} images={this.state.images}/>
       </div>);
   }
 }

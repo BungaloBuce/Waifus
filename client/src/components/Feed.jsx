@@ -57,7 +57,7 @@ class Feed extends React.Component {
             </Button>
           </ThemeProvider>
           <FormControl>
-          <InputLabel style={{"fontSize": "70%", "color": "white", "marginLeft": "1.8rem", "marginBottom": "5px", "width": "200%", "text-decoration": "underline"}} id="demo-simple-select-label">Category</InputLabel>
+          <InputLabel style={{"fontSize": "70%", "color": "white", "marginLeft": "1.8rem", "marginBottom": "5px", "width": "200%", "textDecoration": "underline"}} id="demo-simple-select-label">Category</InputLabel>
             <Select
              style={{"color": "white", "marginLeft": "1rem", "marginBottom": "5px", "width": "200%"}}
              value={this.state.category}
@@ -112,7 +112,7 @@ class Feed extends React.Component {
               }
           </Button>
         </h1>
-      <Collection images={this.state.images}/>
+      <Collection user={this.props.user} images={this.state.images}/>
       </div>
       );
   }
