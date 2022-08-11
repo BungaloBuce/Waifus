@@ -11,8 +11,8 @@ class App extends React.Component {
       feed: false,
       logIn: true,
       profile: false,
-      user: "Bruce",
-      password: "Waifus"
+      user: "",
+      password: ""
     };
     this.handleLogIn = this.handleLogIn.bind(this);
     this.switchToLogIn = this.switchToLogIn.bind(this);
@@ -41,7 +41,7 @@ class App extends React.Component {
       <div className="main">
         {!this.state.logIn &&
           <>
-            {this.state.feed && <Feed switchToProfile={this.switchToProfile} switchToLogIn={this.switchToLogIn}/>}
+            {this.state.feed && <Feed user={this.state.user} switchToProfile={this.switchToProfile} switchToLogIn={this.switchToLogIn}/>}
             {!this.state.feed && <Profile switchToFeed={this.switchToFeed} user={this.state.user} />}
           </>
         }
